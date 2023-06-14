@@ -1,0 +1,36 @@
+%estimation de loi de poisson 
+
+tr=1  ;
+ln =50 ;
+x=zeros(tr,ln);
+lambda =4;
+a=exp(-lambda);
+for i =1:ln
+    s=rand(1,1);
+    n=0;
+    while(a<s)
+        u=rand(1,1);
+        s=s*u;
+        n=n+1;
+        
+    end;
+    x(1,i)=n;
+end 
+disp(x);
+%plot(x);
+
+
+%calul estimation
+esti=0
+for i=1:ln 
+    esti=esti+x(1,i);
+end
+esti=esti/ln;
+disp(esti);
+%calul variance 
+var=0
+for i=1:ln 
+    var=(var+(x(1,i)-esti));
+end
+ var=var/(tn-1);
+ disp(var);

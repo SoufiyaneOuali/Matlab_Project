@@ -1,0 +1,86 @@
+%processus de poisson composé 
+
+tr=1  ;
+tn =50 ;
+t =10;
+lamda =4;
+T=zeros(1,1);
+
+%LOI EXPENTIELLE 
+for i = 1 : tn
+u=rand(1,1) ;
+
+T(1,i)= (-log(1-u))/lamda ;
+
+end
+
+psi =zeros(1,1);
+
+for i = 1 : tn
+    n=0;
+    j=1;
+    while(j<=i)
+        n=n+T(1,j+);
+        j=j+1;
+    end
+    psi(1,i)=n;
+
+end
+
+%calculer Nt
+nt=0;
+k=1;
+PSI=psi(1,k) ;
+while(PSI<t)
+        
+        nt=nt+1;
+        k=k+1;
+        PSI=PSI+psi(1,k);
+   
+end
+
+fprintf('-------- processus de poisson---------- \n \t  NT=%d \n',nt);
+
+
+
+%{
+
+
+
+
+for i =1:tn
+    s=rand(1,1);
+    n=0;
+    while(a<s)
+        u=rand(1,1);
+        s=s*u;
+        n=n+1;
+    end;
+    
+    t(1,i)=n;
+end 
+% disp(x);
+% plot(x);
+
+
+
+
+ 
+ psi=0 ;
+for i = 1:tn
+    est=est+t(1,i);
+end 
+display(est);
+
+
+
+% estimation de la variance 
+var=0 ;
+for i = 1:tn
+    var=var+((x(1,i)-est)^2);
+end
+var=var/(tn-1);
+display(var);
+
+
+%}

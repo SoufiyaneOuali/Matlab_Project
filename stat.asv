@@ -1,0 +1,5 @@
+function [moyenne,ecartype]=stat(x)
+n=length(x);
+moyenne=sum(x)/n;
+ecartype=sqrt(sum((x-moyenne)/n)) ;
+return 
